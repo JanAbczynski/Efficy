@@ -1,0 +1,36 @@
+1. Persistence
+ How would you add a persistent storage layer such that the app could be restarted without losing
+counter states?
+What storage technology would you suggest?
+
+	I would use SQL database, connected by Entity Framework.
+
+
+
+2. Fault tolerance
+How would you design the app in order to make the functionality be available even if some parts of
+the underlying hardware systems were to fail?
+
+	It will be good to have many instances of application and use Load Balancer to move traffic to the most effective instance at the moment.
+
+
+3. Scalability
+How would you design the app in order to ensure that it wouldnʼt slow down or fail if usage increased
+by many orders of magnitude? what if this turned into a global contest with 10x, 100x, 1000x the
+number of teams and traffic?
+Does your choice of persistence layer change in this scenario?
+
+
+	We could use also many instances and Load Balancer. 
+	Also we could use auto scalable environment on Azure or AWS.
+	It will be good to split application for few microservices.
+
+
+
+
+Authentication
+How would you ensure that only authorised users can submit and/or retrieve data?
+How would you then add support to allow different users to only update specific counters? Or
+perform only specific operations?
+
+	I would use JWT Bearer token. Specific claims and roles could give access to parts of application only for specific users.
